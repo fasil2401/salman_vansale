@@ -1,0 +1,152 @@
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <style>
+        @page {
+            margin: 0mm 0mm 0mm 0mm
+        }
+
+        @font-face {
+            font-family: MyFont;
+            src: url('tahoma.ttf');
+        }
+
+        body {
+            font-family: MyFont !important;
+            text-align: center;
+            line-height: 2pt;
+            font-size: 9pt;
+        }
+
+        table {
+            border: 1px dashed #CCCCCC;
+            border-spacing: 6px;
+            font-size: 9pt;
+        }
+
+        td {
+            font-size: 9pt;
+        }
+
+        .tdr {
+            text-align: right;
+        }
+
+        .custom-table {
+            border: 1px dashed #CCCCCC;
+            border-spacing: 6px;
+            font-size: 9pt;
+            width: 90vw;
+            margin: 16px
+        }
+
+        .custom-table td {
+            text-align: right;
+            font-size: 9pt;
+        }
+    </style>
+</head>
+
+<body style='text-align:center'>
+
+    <table style='width:90vw;margin:16px'>
+        <tr>
+            <td>Date: </td>
+            <td>{{date}}</td>
+        </tr>
+        <tr>
+            <td>Sales Person: </td>
+            <td>{{salesPerson}}</td>
+        </tr>
+        <tr>
+            <td>Van Name: </td>
+            <td>{{vanName}}</td>
+        </tr>
+    </table>
+
+    <!-- <h5 style='text-decoration:underline'><b>{{title}}</b></h5> -->
+
+    <!-- <span>TRN #TRN : {{trn}}</span><br><br> -->
+    <hr style='border:0 none;border-top:2px dashed #707070;background:none;height:0;margin:8px 4px 8px 0;' />
+    <table style='width:90vw;margin:16px'>
+        <tr>
+            <td>Customer:</td>
+            <td colspan='2'>{{customer}}'</td>
+        </tr>
+        <tr>
+            <td rowspan='2'>Address:</td>
+            <td>{{address}}</td>
+            <td>Date:</td>
+            <td>{{date}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Invoice#:</td>
+            <td>{{voucherId}}</td>
+        </tr>
+        <tr>
+            <td>Phone:</td>
+            <td>{{phone}}</td>
+            <td>SalesMan:</td>
+            <td>{{salesMan}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Mobile:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Payment Mode:</td>
+            <td>{{paymentMode}}</td>
+            <td>Reference No:</td>
+            <td>{{reference}}</td>
+
+        </tr>
+    </table>
+    <hr style='border:0 none;border-top:2px dashed #707070;background:none;height:0;margin:8px 4px 8px 0;' />
+    <table class="custom-table">
+        <tr>
+            <td>#</td>
+            <td style="text-align:left">Name<br>اسم</td>
+            <td class='tdr'>Qty<br>مقدار</td>
+            <td class='tdr'>Unit<br>وحدة</td>
+            <td class='tdr'>Unit Price<br>سعر الوحدة</td>
+            <td class='tdr'>Amount<br>كمية</td>
+            <!-- <td class='tdr'>Discount</td> -->
+        </tr> {{tableRows}}<tr>
+            <td colspan='2'></td>
+            <td colspan='2'><b>الكمية الإجمالية Total quantity: {{totalQty}}</b></td>
+        </tr>
+    </table>
+    <hr style='border:0 none;border-top:2px dashed #707070;background:none;height:0;margin:8px 4px 8px 0;' />
+    <table style='width:90vw;margin:16px'>
+        <tr>
+            <td> المبلغ بالكلمات Amount in words:</td>
+            <td>{{amountInWords}}</td>
+        </tr>
+        <tr>
+            <td> المجموع الفرعي Sub Total:</td>
+            <td class='tdr'>{{subTotal}}</td>
+        </tr>
+        <tr>
+            <td> تخفيض Discount:</td>
+            <td class='tdr'> {{discount}}</td>
+        </tr>
+        <!-- <tr>
+            <td> ضريبة القيمة المضافة VAT(15%):</td>
+            <td class='tdr'>{{tax}}</td>
+        </tr> -->
+        <tr>
+            <td> المجموع Total:</td>
+            <td class='tdr'>{{total}}</td>
+        </tr>
+
+    </table>
+    
+    <!-- <img src='data:image/jpg;base64, {{footerImage}}' style='width:100%;' /> -->
+</body>
+
+</html>

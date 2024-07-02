@@ -1,0 +1,52 @@
+{
+  "token": "fee44aaab4b04bc390af8979abf05ba1",
+  "SysDocID": "CE-VN02",
+  "VoucherID": "CEVAN200012",
+  "Reference": "",
+  "TransactionDate": "2023-12-05T16:04:41.984930",
+  "RegisterID": "VAN02",
+  "DivisionID": "1",
+  "CompanyID": "1",
+  "Amount": 25,
+  "TaxGroupId": "",
+  "TaxAmount": 0,
+  "TransactionDetails": [
+    {
+      "AccountID": "5020102",
+      "Description": "FUEL CHARGES",
+      "Amount": 25,
+      "AmountFC": 0,
+      "TaxGroupId": "",
+      "TaxAmount": 0,
+      "RowIndex": 0
+    }
+  ],
+  "ExpenseTaxDetails": [
+    {
+      "SysDocId": "CE-VN02",
+      "VoucherId": "CEVAN200012",
+      "TaxGroupId": "",
+      "TaxCode": "",
+      "Items": "",
+      "TaxRate": 0,
+      "CalculationMethod": "1",
+      "TaxAmount": 0,
+      "CurrencyID": "",
+      "RowIndex": -1,
+      "OrderIndex": 0
+    },
+    {
+      "SysDocId": "CE-VN02",
+      "VoucherId": "CEVAN200012",
+      "TaxGroupId": "",
+      "TaxCode": "",
+      "Items": "",
+      "TaxRate": 0,
+      "CalculationMethod": "",
+      "TaxAmount": 0,
+      "CurrencyID": "",
+      "RowIndex": 0,
+      "OrderIndex": 0
+    }
+  ]
+}

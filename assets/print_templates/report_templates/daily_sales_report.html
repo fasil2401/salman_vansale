@@ -1,0 +1,122 @@
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <style>
+        @font-face {
+            font-family: MyFont;
+            src: url('tahoma.ttf');
+        }
+
+        body {
+            font-family: MyFont !important;
+            text-align: center;
+            line-height: 2pt;
+            font-size: 9pt;
+        }
+
+        table {
+            border: 1px dashed #CCCCCC;
+            border-spacing: 6px;
+            font-size: 9pt;
+        }
+
+        td {
+            font-size: 9pt;
+        }
+
+        .tdr {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body style='text-align:center'>
+    <img src='data:image/jpg;base64, {{headerImage}}' style='width:100%;height:120px;' />
+    <table style='width:90vw;margin:16px'>
+        <tr>
+            <td>Date: </td>
+            <td>{{printDate}}</td>
+        </tr>
+        <tr>
+            <td>Sales Person: </td>
+            <td>{{salesPerson}}</td>
+        </tr>
+        <tr>
+            <td>Van Name: </td>
+            <td>{{vanName}}</td>
+        </tr>
+    </table>
+    <h5 style='text-decoration:underline'><b>DAILY REPORT</b></h5>
+    <table style='width:90vw;margin:16px'>
+        <tr>
+            <td>#</td>
+            <td>Type</td>
+            <td>Count</td>
+            <td class='tdr'>Amount</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Cash Sales</td>
+            <td class='tdr'>{{cashSalesCount}}</td>
+            <td class='tdr'>{{cashSalesAmount}}</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Cash Sale Return</td>
+            <td class='tdr'>{{cashSaleReturnCount}}</td>
+            <td class='tdr'>{{cashSaleReturnAmount}}</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Cash Receipts</td>
+            <td class='tdr'>{{cashRecieptCount}}</td>
+            <td class='tdr'>{{cashRecieptAmount}}</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Cash Expenses</td>
+            <td class='tdr'>{{cashExpenseCount}}</td>
+            <td class='tdr'>{{cashExpenseAmount}}</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td><b>Total Cash</b></td>
+            <td class='tdr'><b>{{totalCashCount}}</b></td>
+            <td class='tdr'><b>{{totalCashAmount}}</b></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Credit card Sales</td>
+            <td class='tdr'>{{creditCardCount}}</td>
+            <td class='tdr'>{{creditCardAmount}}</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Credit Sales</td>
+            <td class='tdr'>{{creditSalesCount}}</td>
+            <td class='tdr'>{{creditSalesAmount}}</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Credit Sale Returns</td>
+            <td class='tdr'>{{creditSaleReturnCount}}</td>
+            <td class='tdr'>{{creditSaleReturnAmount}}</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Cheques Collected</td>
+            <td class='tdr'>{{chequeCollectedCount}}</td>
+            <td class='tdr'>{{chequeCollectedAmount}}</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td><b>Total</b></td>
+            <td class='tdr'><b>{{totalCount}}<b /></td>
+            <td class='tdr'><b>{{totalAmount}}</b></td>
+        </tr>
+    </table> <img src='data:image/jpg;base64, {{footerImage}}' style='width:100%;' />
+</body>
+
+</html>

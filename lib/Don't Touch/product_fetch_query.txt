@@ -1,0 +1,74 @@
+SELECT
+    P.*,
+    P.OpeningStock - IFNULL(
+        (
+            SELECT SUM(
+                CASE
+                    WHEN U1.FactorType = 'M' THEN (CASE WHEN SH.isReturn=1 THEN -1*SD.quantity ELSE SD.quantity  END) / U1.Factor
+                    WHEN U1.FactorType = 'D' THEN (CASE WHEN SH.isReturn=1 THEN -1*SD.quantity ELSE SD.quantity  END) * U1.Factor
+                    ELSE (CASE WHEN SH.isReturn=1 THEN -1*SD.quantity ELSE SD.quantity END)
+                END
+            )
+            FROM salesInvoiceDetail SD
+			LEFT JOIN salesInvoiceHeader SH ON SH.voucherid=SD.voucherid
+      LEFT JOIN Units U1 ON SD.productId = U1.productId
+            WHERE P.productId = SD.productId AND SD.isDamaged=0 AND SH.isSynced=0 -- You might need this condition BOTIM
+        ),
+        0
+    ) AS Stock,
+	ifnull((
+            SELECT SUM(
+                CASE
+                    WHEN SH.isReturn = 0 AND SD.isDamaged = 0 THEN
+					CASE 
+                            WHEN P.unitid = SD.unitid THEN SD.quantity
+                            WHEN U1.FactorType = 'M' THEN SD.quantity / U1.Factor
+                            WHEN U1.FactorType = 'D' THEN SD.quantity * U1.Factor
+                            ELSE SD.quantity
+                        END
+                    ELSE 0
+                END
+            )
+            FROM salesInvoiceDetail SD
+            LEFT JOIN salesInvoiceHeader SH ON SH.voucherid = SD.voucherid
+			LEFT JOIN Units U1 ON SD.productId = U1.productId
+            WHERE P.productId = SD.productId AND SH.isSynced=0 
+        ),0) AS SaleQuantity,
+		ifnull((
+            SELECT SUM(
+                CASE
+                    WHEN SH.isReturn = 1 AND SD.isDamaged = 0 THEN
+					CASE 
+                            WHEN P.unitid = SD.unitid THEN SD.quantity
+                            WHEN U1.FactorType = 'M' THEN SD.quantity / U1.Factor
+                            WHEN U1.FactorType = 'D' THEN SD.quantity * U1.Factor
+                            ELSE SD.quantity
+                        END
+                    ELSE 0
+                END
+            )
+            FROM salesInvoiceDetail SD
+            LEFT JOIN salesInvoiceHeader SH ON SH.voucherid = SD.voucherid
+			LEFT JOIN Units U1 ON SD.productId = U1.productId
+            WHERE P.productId = SD.productId AND SH.isSynced=0 
+        ),0) AS ReturnQuantity,
+		ifnull((
+            SELECT SUM(
+                CASE
+                    WHEN SD.isDamaged = 1 THEN
+					CASE 
+                            WHEN P.unitid = SD.unitid THEN SD.quantity
+                            WHEN U1.FactorType = 'M' THEN SD.quantity / U1.Factor
+                            WHEN U1.FactorType = 'D' THEN SD.quantity * U1.Factor
+                            ELSE SD.quantity
+                        END
+                    ELSE 0
+                END
+            )
+            FROM salesInvoiceDetail SD
+            LEFT JOIN salesInvoiceHeader SH ON SH.voucherid = SD.voucherid
+			LEFT JOIN Units U1 ON SD.productId = U1.productId
+            WHERE P.productId = SD.productId AND SH.isSynced=0 
+        ),0) AS DamageQuantity
+FROM Product P
+LEFT JOIN Units U ON P.unitid = U.Code;

@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <style>
+        @font-face {
+            font-family: MyFont;
+            src: url('tahoma.ttf');
+        }
+
+        body {
+            font-family: MyFont !important;
+            text-align: center;
+            line-height: 2pt;
+            font-size: 9pt;
+        }
+
+        table {
+            border: 1px dashed #CCCCCC;
+            border-spacing: 6px;
+            font-size: 9pt;
+        }
+
+        td {
+            font-size: 9pt;
+        }
+
+        .tdr {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body style='text-align:center'>
+    <img src='data:image/jpg;base64, {{headerImage}}' style='width:100%;height:120px;' />
+    <table style='width:90vw;margin:16px'>
+        <tr>
+            <td>Date: </td>
+            <td>{{printDate}}</td>
+        </tr>
+        <tr>
+            <td>Sales Person: </td>
+            <td>{{salesPerson}}</td>
+        </tr>
+        <tr>
+            <td>Van Name: </td>
+            <td>{{vanName}}</td>
+        </tr>
+    </table>
+    <h5 style='text-decoration:underline'><b>STOCK REPORT</b></h5>
+    <table class="custom-table">
+        <tr>
+            <td>#</td>
+            <td style="text-align:left">Item Code</td>
+            <td class='tdr'>Opening Stock</td>
+            <td class='tdr'>Sales Invoice</td>
+            <td class='tdr'>Returns</td>
+            <td class='tdr'>Damage</td>
+            <td class='tdr'>OnHand</td>
+        </tr> {{tableRows}}<tr>
+            <td colspan='2'></td>
+            <td colspan='2'><b>Total quantity: {{totalQty}}</b></td>
+        </tr>
+    </table>
+    <img src='data:image/jpg;base64, {{footerImage}}' style='width:100%;' />
+</body>
+
+</html>

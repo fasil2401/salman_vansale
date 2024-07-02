@@ -1,0 +1,98 @@
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+  <style>
+    @font-face {
+      font-family: MyFont;
+      src: url('tahoma.ttf');
+    }
+
+    body {
+      font-family: MyFont !important;
+      text-align: center;
+      line-height: 2pt;
+      font-size: 9pt;
+    }
+
+    table {
+      border: 1px dashed #CCCCCC;
+      border-spacing: 6px;
+      font-size: 9pt;
+    }
+
+    td {
+      font-size: 9pt;
+    }
+
+    .tdr {
+      text-align: right;
+    }
+
+    .custom-table {
+      border: 1px dashed #CCCCCC;
+      border-spacing: 6px;
+      font-size: 9pt;
+      width: 90vw;
+      margin: 16px
+    }
+
+    .custom-table td {
+      text-align: right;
+      font-size: 9pt;
+    }
+  </style>
+</head>
+
+<body style='text-align:center'>
+  <img src='data:image/jpg;base64, {{headerImage}}' style='width:100%;height:120px;' />
+
+  <table style='width:90vw;margin:16px'>
+    <tr>
+      <td>Print Date: </td>
+      <td>{{printDate}}</td>
+    </tr>
+    <tr>
+      <td>From Date:</td>
+      <td>{{fromDate}}</td>
+    </tr>
+    <tr>
+      <td>To Date:</td>
+      <td>{{toDate}}</td>
+    </tr>
+    <tr>
+      <td>Sales Person: </td>
+      <td>{{salesPerson}}</td>
+    </tr>
+    <tr>
+      <td>Van Name: </td>
+      <td>{{vanName}}</td>
+    </tr>
+  </table>
+
+  <h5 style='text-decoration:underline'><b>SALES REPORT</b></h5>
+
+  <table class="custom-table">
+    <tr>
+      <td>#</td>
+      <td style="text-align:left">Customer</td>
+      <td class='tdr'>Voucher No</td>
+      <td class='tdr'>Total</td>
+      <td class='tdr'>Tax</td>
+      <td class='tdr'>Discount</td>
+      <td class='tdr'>Net Amount</td>
+    </tr>
+    <tr>{{tableRows}}</tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td class='tdr'></td>
+      <td class='tdr'></td>
+      <td class='tdr'></td>
+      <td class='tdr'><b>Total: {{total}}</b></td>
+    </tr>
+  </table><img src='data:image/jpg;base64, {{footerImage}}' style='width:100%;' />
+</body>
+
+</html>

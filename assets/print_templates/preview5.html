@@ -1,0 +1,293 @@
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <style>
+        @font-face {
+            font-family: MyFont;
+            src: url('tahoma.ttf');
+        }
+
+        body {
+            font-family: MyFont !important;
+            text-align: center;
+            line-height: 2pt;
+            font-size: 9pt;
+        }
+
+        @media print {
+            .footer {
+                display: block;
+            }
+        }
+
+        @media screen {
+            .footer {
+                display: none;
+            }
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            position: fixed;
+            height: 120px;
+            margin-bottom: 16px;
+        }
+
+        @media print {
+            .footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100px;
+                /* Set the desired height */
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                z-index: 0;
+                /* Set a lower z-index value */
+            }
+
+            .footer-line {
+                border: none;
+                border-top: 1px solid #000;
+                margin-bottom: 20px;
+                /* Increase the margin-bottom value for more space between lines */
+            }
+
+            .footer-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .footer-text {
+                font-size: 14px;
+            }
+        }
+
+        table {
+            border: 1px dashed #CCCCCC;
+            border-spacing: 6px;
+            font-size: 9pt;
+        }
+
+        td {
+            font-size: 9pt;
+        }
+
+        .tdr {
+            text-align: right;
+        }
+
+        .MUSTBEATBOTTOM {
+            position: fixed;
+            bottom: 100px;
+            /* Adjust the value to leave space above the footer */
+            left: 0;
+            right: 0;
+            padding: 1px;
+            z-index: 1;
+            /* Set a higher z-index value */
+        }
+    </style>
+</head>
+
+<body style='text-align:center'>
+    <div class='header' style='display: flex; align-items: center;'>
+
+        <img src='data:image/jpg;base64, {{headerImage}}' style='width:100%; height:100%;' />
+    </div>
+    <div class='page'>
+        <hr class='footer-line' style='margin-bottom: 120px;border-top: 0;border-bottom: 1px solid transparent;'>
+        <div style='text-align: right;margin-right: 210px; margin-bottom:20px;'>
+            <span style='font-size: 17px; font-weight: bold;'>{{title}}</span>
+        </div>
+        <div style='width: 60%; float: left;'>
+            <table style='width: 100%; border: none; border-spacing: 0;margin-left:40px;'>
+                <tr>
+                    <td><b style='text-decoration: underline;'>CLIENT</b></td>
+                </tr>
+                <tr>
+                    <td>{{customer}}</td>
+                </tr>
+                <tr>
+                    <td>{{address}}</td>
+                </tr>
+                <tr>
+                    <td>{{customertrn}}</td>
+                </tr>
+            </table>
+        </div>
+        <div style='width: 40%; float: right;'>
+            <table style='width: 100%; border: none;margin-right: 30px; border-spacing: 0;'>
+                <tr>
+                    <td>INVOICE NO:</td>
+                    <td>{{voucherId}}</td>
+                </tr>
+                <tr>
+                    <td>INVOICE DATE:</td>
+                    <td>{{date}}</td>
+                </tr>
+                <tr>
+                    <td>LPO NO:</td>
+                    <td>{{reference}}</td>
+                </tr>
+            </table>
+        </div>
+
+
+
+        <hr style='border:0 none;border-top:2px dashed #707070;background:none;height:0;margin:8px 4px 8px 0;' />
+        <table style='width:90vw;margin:16px'>
+            <tr>
+
+
+                <td class='tdr'>BarCode</td>
+                <td>Description</td>
+                <td class='tdr'>Unit</td>
+
+                <td class='tdr'>Qty</td>
+                <td class='tdr'>Unit Price</td>
+                <td class='tdr'>Disc%</td>
+                <td class='tdr'>VAT%</td>
+                <td class='tdr'>VAT Amount</td>
+                <td class='tdr'>Amount AED</td>
+            </tr>
+            <tr>
+                <td class='tdr'></td>
+                <td>Test Description</td>
+                <td class='tdr'>Test Unit</td>
+
+                <td class='tdr'>1.00</td>
+
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0</td>
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0.00</td>
+            </tr>
+            <tr>
+                <td class='tdr'></td>
+                <td>Test Description</td>
+                <td class='tdr'>Test Unit</td>
+
+                <td class='tdr'>2.00</td>
+
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0</td>
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0.00</td>
+            </tr>
+            <tr>
+                <td class='tdr'></td>
+                <td>Test Description</td>
+                <td class='tdr'>Test Unit</td>
+
+                <td class='tdr'>3.00</td>
+
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0</td>
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0.00</td>
+            </tr>
+            <tr>
+                <td class='tdr'></td>
+                <td>Test Description</td>
+                <td class='tdr'>Test Unit</td>
+
+                <td class='tdr'>4.00</td>
+
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0</td>
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0.00</td>
+            </tr>
+            <tr>
+                <td class='tdr'></td>
+                <td>Test Description</td>
+                <td class='tdr'>Test Unit</td>
+
+                <td class='tdr'>5.00</td>
+
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0</td>
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0.00</td>
+            </tr>
+            <tr>
+                <td class='tdr'></td>
+                <td>Test Description</td>
+                <td class='tdr'>Test Unit</td>
+
+                <td class='tdr'>6.00</td>
+
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0</td>
+                <td class='tdr'>0.00</td>
+                <td class='tdr'>0.00</td>
+            </tr>
+        </table>
+
+        <table style='width: 40%; float: right; text-align: right;border: none; border-spacing: 0;margin-right:70px;'>
+            <tr>
+                <td>Gross Total<br />(Includes discount of AED)</td>
+                <td>{{subTotal}}</td>
+            </tr>
+            <tr>
+                <td>Total VAT on Sales</td>
+                <td>{{tax}}</td>
+            </tr>
+            <tr>
+                <td colspan='2' style='padding-top: 10px;'></td>
+            </tr>
+            <tr>
+                <td style='border-top: 1px solid #000;'>Invoice Total AED</td>
+                <td style='border-top: 1px solid #000;'>{{total}}</td>
+            </tr>
+        </table>
+
+        <div class='MUSTBEATBOTTOM' style='margin-left:15px;margin-right:15px;'>
+            <div style='height: 1px; background-color: #000;'></div>
+
+            <hr class='footer-line' style='margin-bottom: 2px;border-top: 0;border-bottom: 1px solid transparent;'>
+            <div class='footer-content'>
+                <div class='footer-text'>Company stamp &amp; signature:</div>
+                <div class='footer-text' style='text-align: right;margin-right:140px;'>RECEIVED BY:</div>
+            </div>
+            <hr class='footer-line' style='margin-top: 20px;border-top: 0;border-bottom: 1px solid transparent;'>
+            <div class='footer-content'>
+                <div class='footer-text'>AHSKA GENERAL TRADING LLC</div>
+                <div class='footer-text' style='text-align: right;margin-right:194px;'>DATE:</div>
+            </div>
+            <hr class='footer-line' style='margin-bottom: 12px;border-top: 0;border-bottom: 1px solid transparent;'>
+        </div>
+
+        <div class='footer' style='margin-left:15px;margin-right:15px;'>
+            <img src='data:image/jpg;base64, {{footerImage}}' style='width:100%; height:100%;object-fit: contain;' />
+        </div>
+
+    </div>
+
+</body>
+
+</html>

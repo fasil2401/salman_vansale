@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Table</title>
+    <style>
+    /* Add your custom CSS styles here */
+    /* For example, you can style the invoice layout, fonts, and colors */
+    body {
+        font-family: Arial, sans-serif; /* Apply font family to the entire document */
+    }
+    .table-container {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid black; /* Thin horizontal lines by default */
+    }
+    th {
+        font-weight: bold; /* Bold headers */
+        font-size: 14px;
+    }
+    /* Thick lines between header row and first data row */
+    thead tr:first-child th {
+        border-bottom: 2px solid black; 
+    }
+    tr:not(:first-child) {
+        border-top: 1px solid black; /* Thin horizontal lines */
+    }
+    tbody tr {
+        font-size: 10px;
+        border-bottom: 1px solid black; /* Add horizontal lines between rows */
+    }
+    /* Center-align the heading */
+    h1 {
+        text-align: center;
+    }
+    /* Style for the "CLIENT" text */
+    .invoice-info-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        margin-left: 20px;
+    }
+    /* Right-align the invoice information */
+    .invoice-info-left,
+    .invoice-info-right {
+        font-weight: bold;
+    }
+    .invoice-info-bold {
+        font-weight: bold;
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+    .invoice-info-item {
+        margin-right: 20px;
+    }
+    /* Style for the invoice price */
+    .invoice-price {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    .invoice-price-left {
+        font-weight: bold;
+        text-align: left;
+        margin-left: 20px;
+    }
+    .invoice-price-right {
+        text-align: right;
+        margin-right: 20px;
+        font-weight: bold;
+    }
+    .invoice-total-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    /* Right-align the invoice information */
+    .invoice-total-left,
+    .invoice-total-right {
+        font-weight: strong;
+    }
+    /* Style for the invoice footer */
+    .invoice-footer {
+        margin-top: 20px;
+        font-weight: bold;
+        text-align: left;
+        margin-left: 20px;
+    }
+    .signatures {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        margin-right: 40px;
+    }
+</style>
+
+
+</head>
+<body>
+    <h1>Invoice Summary</h1>
+    <div class="invoice-info-container">
+        <div class="invoice-info-left">
+            <div><u>CLIENT</u></div>
+            <div>Emarat Service Station - AI Alia</div>
+            <div>TRN: 123456777</div>
+            <div>Address: Your Address Here</div>
+        </div>
+        <div class="invoice-info-right">
+            <div class="invoice-info-bold">TAX INVOICE</div>
+            <div>INVOICE NO - 356447677</div>
+            <div>INVOICE DATE: 12 FEB 2024</div>
+            <div>REFERENCE NO: </div>
+            <!-- Your invoice information goes here -->
+        </div>
+    </div>
+    <div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>BarCode/Qr</th>
+                <th>QTY</th>
+                <th>U/Price</th>
+                <th>Disc%</th>
+                <th>VAT Amount</th>
+                <th>Amount AED</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CZ CHOCO STREUSEL STRAWBERRY</td>
+                <td>ABC123456789</td>
+                <td>12.00 NOS</td>
+                <td>9.75</td>
+                <td>-</td>
+                <td>11.70</td>
+                <td>117.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr><tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr><tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr><tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr><tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+            <tr>
+                <td>CZ COOL DRINKS</td>
+                <td>XYZ987654321</td>
+                <td>14.00 NOS</td>
+                <td>16.25</td>
+                <td>-</td>
+                <td>23.10</td>
+                <td>231.00 AED</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <!-- Added content after the table -->
+    <div class="invoice-price">
+        <div class="invoice-price-left">
+            <!-- Left-aligned content -->
+        </div>
+        <div class="invoice-price-right">
+            <p>Gross Total: 918.72 AED</p>
+            <p>Discount Total: 0.00 AED</p>
+            <p>Total VAT on Sales 5%: 45.94 AED</p>
+            <hr> <!-- Horizontal line -->
+        </div>
+    </div>
+        <div class="invoice-total-container">
+        <div class="invoice-total-left">
+            <!-- Left-aligned content -->
+            <p>Amount in words: Nine Hundred Sixty Four and 66/100</p>
+        </div>
+        <div class="invoice-total-right">
+            <p>Invoice Total AED: 964.66</p>
+        </div>
+    </div>
+   
+    <div class="invoice-footer">
+        
+        <hr> <!-- Horizontal line -->
+        <div class="signatures">
+            <p>Salesman's Sign:</p>
+            <p>Receiver's Sign:</p>
+        </div>
+        <div class="signatures">
+            <p>SPRING ONIONS FOODSTUFF TRADING LLC</p>
+            <p>DATE:</p>
+        </div>
+    </div>
+
+</body>
+</html>

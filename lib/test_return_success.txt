@@ -1,0 +1,93 @@
+syncVisitlog() async {
+    isErrorVisitlog.value = false;
+    if (visitlogToggle.value == false) return;
+    await visitLogLocalController.getAllCustomerVisit();
+    if (visitLogLocalController.customerVisits.isEmpty) {
+      isVisitlogSyncing.value = true;
+      isVisitlogSuccess.value = true;
+      return;
+    }
+    isVisitlogSyncing.value = true;
+    isLoadingVisitlog.value = true;
+    await loginController.getLogin();
+    if (loginController.access.value.isEmpty) {
+      await loginController.getLogin();
+    }
+    final String token = loginController.access.value;
+    for (var header in visitLogLocalController.customerVisits) {
+      if (header.isSynced == true) {
+        isLoadingVisitlog.value = false;
+        isVisitlogSuccess.value = true;
+        continue;
+      } else {
+        isVisitlogSyncing.value = true;
+        isLoadingVisitlog.value = true;
+      }
+
+      final data = jsonEncode({
+        "token": token,
+        "Description": '',
+        "CloseLongitude": header.closeLongitude ?? '',
+        "CloseLatitude": header.closeLatitude ?? '',
+        "StartLongitude": header.startLongitude ?? '',
+        "StartLatitude": header.startLatitude ?? '',
+        "GeoLocation": '',
+        "VanID": header.vanID ?? '',
+        "VisitEnd": header.endTime ?? '',
+        "VisitStart": header.startTime ?? '',
+        "CustomerID": header.customerId ?? '',
+        "RouteID": header.routeID ?? '',
+        "VisitID": header.visitLogId ?? 0,
+        "UserID": UserSimplePreferences.getUsername() ?? ''
+      });
+      try {
+        var feedback = await ApiManager.fetchDataRawBodyVAN(
+            api: "CreateVisitlog", data: data);
+        developer.log(feedback.toString(), name: 'data');
+        if (feedback != null) {
+          if (feedback['res'] == 1) {
+            isVisitlogSuccess.value = true;
+            isLoadingVisitlog.value = false;
+            await visitLogLocalController.updateCustomerVisit(
+              startTime: header.startTime ?? '',
+              isSynced: 1,
+              isError: 0,
+              error: '',
+            );
+
+            activityLogLocalController.insertactivityLogList(
+                activityLog: UserActivityLogModel(
+                    sysDocId: "",
+                    voucherId: "",
+                    activityType: ActivityTypes.other.value,
+                    date: DateTime.now().toIso8601String(),
+                    description: "OutSynced Visit Logs",
+                    machine: UserSimplePreferences.getDeviceInfo(),
+                    userId: UserSimplePreferences.getUsername(),
+                    isSynced: 0));
+          } else {
+            // developer.log('Getting into else case');
+            isLoadingVisitlog.value = false;
+            isVisitlogSuccess.value = false;
+            errorVisitlog.value = feedback['msg'] ?? feedback['err'];
+            isErrorVisitlog.value = true;
+            // SnackbarServices.errorSnackbar(feedback['msg'] ?? feedback['err']);
+            await visitLogLocalController.updateCustomerVisit(
+              startTime: header.startTime ?? '',
+              isSynced: 0,
+              isError: 1,
+              error: feedback['msg'] ?? feedback['err'],
+            );
+          }
+        }
+      } catch (e) {
+        // developer.log('Getting into error case');
+        isLoadingVisitlog.value = false;
+        isVisitlogSuccess.value = false;
+        errorVisitlog.value = e.toString();
+        isErrorVisitlog.value = true;
+      } finally {
+        isLoadingVisitlog.value = false;
+      }
+    }
+  }

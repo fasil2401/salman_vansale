@@ -1,0 +1,24 @@
+Inventory
+
+Quarantine Transfer Doccuments
+Item Creation
+lot allocation in quarantine transfer
+Loading sheet saving issues
+
+
+ERP
+
+Customer Credit limit vouchers
+Overdue Control voucher
+
+Vansale
+
+Vansale 4 inch print done
+Print paer size made optional
+Print preference made optional
+
+Facility App
+
+Ui and api integration
+
+

@@ -1,0 +1,164 @@
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <style>
+        @page {
+            margin: 0mm 0mm 0mm 0mm
+        }
+
+        @font-face {
+            font-family: MyFont;
+            src: url('tahoma.ttf');
+        }
+
+        body {
+            font-family: MyFont !important;
+            text-align: center;
+            line-height: 2pt;
+            font-size: 9pt;
+        }
+
+        table {
+            border: 1px dashed #CCCCCC;
+            border-spacing: 6px;
+            font-size: 9pt;
+        }
+
+        td {
+            font-size: 9pt;
+        }
+
+        .tdr {
+            text-align: right;
+        }
+
+        .custom-table {
+            border: 1px dashed #CCCCCC;
+            border-spacing: 6px;
+            font-size: 9pt;
+            width: 90vw;
+            margin: 16px
+        }
+
+        .custom-table td {
+            text-align: right;
+            font-size: 9pt;
+        }
+    </style>
+</head>
+
+<body style='text-align:center'>
+    <img src='data:image/jpg;base64, {{headerImage}}' style='width:100%;height:120px;' />
+
+    <table style='width:90vw;margin:16px'>
+        <tr>
+            <td>Date: </td>
+            <td>{{date}}</td>
+        </tr>
+        <tr>
+            <td>Sales Person: </td>
+            <td>{{salesPerson}}</td>
+        </tr>
+        <tr>
+            <td>Van Name: </td>
+            <td>{{vanName}}</td>
+        </tr>
+    </table>
+
+    <h5 style='text-decoration:underline'><b>{{title}}</b></h5>
+
+    <span>TRN #TRN : {{trn}}</span><br><br>
+    <hr style='border:0 none;border-top:2px dashed #707070;background:none;height:0;margin:8px 4px 8px 0;' />
+    <table style='width:90vw;margin:16px'>
+        <tr>
+            <td>Customer:</td>
+            <td colspan='2'>{{customer}}'</td>
+        </tr>
+        <tr>
+            <td rowspan='2'>Address:</td>
+            <td>{{address}}</td>
+            <td>Date:</td>
+            <td>{{date}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Invoice#:</td>
+            <td>{{voucherId}}</td>
+        </tr>
+        <tr>
+            <td>Phone:</td>
+            <td>{{phone}}</td>
+            <td>SalesMan:</td>
+            <td>{{salesMan}}</td>
+        </tr>
+        <tr>
+            <td>TRN:</td>
+            <td>{{customertrn}}</td>
+            <td>Mobile:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Payment Mode:</td>
+            <td>{{paymentMode}}</td>
+            <td>Reference No:</td>
+            <td>{{reference}}</td>
+
+        </tr>
+    </table>
+    <hr style='border:0 none;border-top:2px dashed #707070;background:none;height:0;margin:8px 4px 8px 0;' />
+    <table class="custom-table">
+        <tr>
+            <td>#</td>
+            <td style="text-align:left">Name</td>
+            <td class='tdr'>Qty</td>
+            <td class='tdr'>Unit</td>
+            <td class='tdr'>Unit Price</td>
+            <td class='tdr'>Amount</td>
+            <!-- <td class='tdr'>Discount</td> -->
+        </tr> {{tableRows}}<tr>
+            <td colspan='2'></td>
+            <td colspan='2'><b>Total quantity: {{totalQty}}</b></td>
+        </tr>
+    </table>
+    <hr style='border:0 none;border-top:2px dashed #707070;background:none;height:0;margin:8px 4px 8px 0;' />
+    <table style='width:90vw;margin:16px'>
+        <tr>
+            <td> Amount in words:</td>
+            <td>{{amountInWords}}</td>
+        </tr>
+        <tr>
+            <td> Sub Total:</td>
+            <td class='tdr'>{{subTotal}}</td>
+        </tr>
+        <tr>
+            <td> Discount:</td>
+            <td class='tdr'> {{discount}}</td>
+        </tr>
+        <tr>
+            <td> VAT(0%):</td>
+            <td class='tdr'>{{tax}}</td>
+        </tr>
+        <tr>
+            <td> Total:</td>
+            <td class='tdr'>{{total}}</td>
+        </tr>
+
+    </table>
+    <table style='width:90vw;margin:16px'>
+        <tr>
+            <td> Receiver's Sign</br>
+                <div style='margin-top:8px;width:80%;height:1px;background-color:black;'></div>
+            </td>
+            <td class='tdr'> Salesman's Sign</br>
+                <div class='tdr' style='float:right;margin-top:8px;width:80%;height:1px;background-color:black;'></div>
+            </td>
+        </tr>
+    </table>
+    <img src='data:image/jpg;base64, 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'
+        style='width:120px;height:120px;' />
+    <img src='data:image/jpg;base64, {{footerImage}}' style='width:100%;' />
+</body>
+
+</html>
